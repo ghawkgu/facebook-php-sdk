@@ -212,6 +212,10 @@ class Facebook
     if (isset($config['fileUpload'])) {
       $this->setFileUploadSupport($config['fileUpload']);
     }
+    require_once(dirname(__FILE__) . '/proxy.php');
+    if (isset($proxy_opts)) {
+        Facebook::$CURL_OPTS = Facebook::$CURL_OPTS + $proxy_opts;
+    }
   }
 
   /**
